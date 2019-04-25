@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lustria|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -200,6 +204,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
+  background-color: #ECEDE3;
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;

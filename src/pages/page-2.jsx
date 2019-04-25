@@ -3,25 +3,33 @@ import { Link } from 'gatsby'
 
 import styled from 'styled-components'
 
+import { fonts } from '../common/styles'
+
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const SecondPage = () => {
   const MainFrame = styled.div`
-    position: relative;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   `
+  const SiteHook = styled.h1`
+    font-family: ${fonts.headerFont};
+    text-align: center;
+    margin: 0px 50px;
+  `
+
   return (
     <Layout>
       <SEO title="Page two" />
       <MainFrame>
-        <p>sup wichu</p>
+        <SiteHook>Digitally creative & naturally curious</SiteHook>
       </MainFrame>
-
     </Layout>
   )
 }
