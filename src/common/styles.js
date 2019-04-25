@@ -5,6 +5,7 @@ export const palette = {
   lightBlue: '#028090',
   darkBlue: '#05668D',
   whiteText: 'rgba(255, 255, 255, 0.88)',
+  blueShadow: '#033549',
 }
 
 export const breakpoints = {

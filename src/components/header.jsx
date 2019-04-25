@@ -27,37 +27,37 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
   align-items: center;
+  box-shadow: 3px 0px 4px ${palette.blueShadow};
 `
 const MenuLine = styled.span`
   position: relative;
   width: 20px;
-  height: 4px;
-  border-radius: 3px;
+  height: 0.2rem;
+  border-radius: 2px;
   background-color: ${palette.whiteText};
-  transition: all .2s ease-in-out;
-  transform-origin: center;
-  &:nth-child(1) {
-    transform: ${props =>
-      props.isActive ? 'translateY(.5rem) rotate(135deg)' : 'rotate(0deg) translate(0px)'};
-  }
-  &:nth-child(2) {
-    transform: rotate(0deg);
-    opacity: ${props => (props.isActive ? 0 : 1)};
-  }
-  &:nth-child(3) {
-    transform: ${props =>
-      props.isActive ? 'translateY(-.5rem) rotate(-135deg)' : 'rotate(0deg) translate(0px)'};
-  }
+  transition: all 0.2s ease-in-out;
+  transform-origin: left;
+  will-change: transform;
 `
 
 const HamburgerMenu = styled.div`
   position: relative;
-  height: 50%;
+  height: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   cursor: pointer;
   z-index: 10;
+  ${MenuLine}:nth-child(1) {
+    transform: ${props => (props.isActive ? 'rotate(45deg)' : 'rotate(0deg)')};
+  }
+  ${MenuLine}:nth-child(2) {
+    transform: rotate(0deg);
+    opacity: ${props => (props.isActive ? 0 : 1)};
+  }
+  ${MenuLine}:nth-child(3) {
+    transform: ${props => (props.isActive ? 'rotate(-45deg)' : 'rotate(0deg)')};
+  }
 `
 
 const Header = ({ siteTitle }) => {
@@ -84,10 +84,10 @@ const Header = ({ siteTitle }) => {
           {siteTitle}
         </Link>
       </HeaderTitle>
-      <HamburgerMenu onClick={() => setOpenBurger(!openBurger)}>
-        <MenuLine isActive={openBurger} lineKey={0} />
-        <MenuLine isActive={openBurger} lineKey={1} />
-        <MenuLine isActive={openBurger} lineKey={2} />
+      <HamburgerMenu isActive={openBurger} onClick={() => setOpenBurger(!openBurger)}>
+        <MenuLine />
+        <MenuLine />
+        <MenuLine />
       </HamburgerMenu>
     </HeaderWrapper>
   )
