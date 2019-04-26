@@ -1,18 +1,12 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { fonts, palette } from '../common/styles'
 
-const pulse = keyframes`
-0% {
-  transform: rotate(0deg);
-}
-100% {
-  transform: rotate(130deg);
-}
-`
+// eslint-disable-next-line import/no-cycle
+import { navState } from '../pages/page-2'
 
 const HeaderTitle = styled.h1`
   font-family: ${fonts.highlightFont};
@@ -61,12 +55,8 @@ const HamburgerMenu = styled.div`
 `
 
 const Header = ({ siteTitle }) => {
-  const [openBurger, setOpenBurger] = useState(false)
-
-  useEffect(() => {
-    console.log(openBurger)
-    return () => {}
-  }, [openBurger])
+  const headerNavState = useContext(navState)
+  const { vis, toggleVis } = headerNavState
 
   return (
     <HeaderWrapper>
@@ -84,7 +74,7 @@ const Header = ({ siteTitle }) => {
           {siteTitle}
         </Link>
       </HeaderTitle>
-      <HamburgerMenu isActive={openBurger} onClick={() => setOpenBurger(!openBurger)}>
+      <HamburgerMenu isActive={vis} onClick={() => toggleVis()}>
         <MenuLine />
         <MenuLine />
         <MenuLine />
