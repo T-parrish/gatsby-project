@@ -8,8 +8,6 @@ import { fonts } from '../common/styles'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-export const navState = React.createContext()
-
 const MainFrame = styled.div`
   position: absolute;
   top: 0;
@@ -26,20 +24,13 @@ const SiteHook = styled.h1`
 `
 
 const SecondPage = () => {
-  const [vis, setVis] = useState(false)
-  const context = {
-    vis,
-    toggleVis: () => setVis(!vis),
-  }
   return (
-    <navState.Provider value={context}>
-      <Layout>
-        <SEO title="Page two" />
-        <MainFrame>
-          <SiteHook>Digitally creative & naturally curious</SiteHook>
-        </MainFrame>
-      </Layout>
-    </navState.Provider>
+    <Layout>
+      <SEO title="Page two" />
+      <MainFrame>
+        <SiteHook>Digitally creative & naturally curious</SiteHook>
+      </MainFrame>
+    </Layout>
   )
 }
 

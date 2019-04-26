@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { fonts, palette } from '../common/styles'
 
 // eslint-disable-next-line import/no-cycle
-import { navState } from '../pages/page-2'
+import { navState } from './layout'
 
 const HeaderTitle = styled.h1`
   font-family: ${fonts.highlightFont};
