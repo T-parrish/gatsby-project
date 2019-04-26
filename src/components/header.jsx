@@ -14,14 +14,17 @@ const HeaderTitle = styled.h1`
 
 const HeaderWrapper = styled.header`
   position: relative;
+  z-index: 7;
   height: 80px;
   background: linear-gradient(123deg, ${palette.darkBlue}, ${palette.lightBlue});
-  margin-bottom: 1.45rem;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
   align-items: center;
-  box-shadow: 3px 0px 4px ${palette.blueShadow};
+  box-shadow: 0px 1px 10px 1px ${palette.blueShadow};
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: ${palette.darkBlue};
 `
 const MenuLine = styled.span`
   position: relative;
